@@ -21,12 +21,12 @@ class EntryCreateView(SuccessMessageMixin, CreateView):
     model = Entry
     fields = ["title", "content"]
     success_url = reverse_lazy("entry-list")
-    success_message = "¡Tu nueva entrada fue creada!"
+    success_message = "Success Created!"
 
 class EntryUpdateView(SuccessMessageMixin, UpdateView):
     model = Entry
     fields = ["title", "content"]
-    success_message = "¡Tu entrada fue actualizada!"
+    success_message = "Success Updated!"
 
     def get_success_url(self):
         return reverse_lazy(
@@ -37,7 +37,7 @@ class EntryUpdateView(SuccessMessageMixin, UpdateView):
 class EntryDeleteView(DeleteView):
     model = Entry
     success_url = reverse_lazy("entry-list")
-    success_message = "¡Tu entrada fue eliminada!"
+    success_message = "Sucess Deleted!"
 
     def delete(self, request, *args, **kwargs):
         messages.success(self.request, self.success_message)
